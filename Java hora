@@ -1,0 +1,204 @@
+import java.util.Scanner;
+
+public class Hora
+{
+Scanner ler = new Scanner(System.in);
+private int hora = 0;
+private int min = 0;
+private int seg = 0;
+public Hora()
+{		
+
+do {
+System.out.println("Digite a hora: ");
+hora = ler.nextInt(); 
+} while (hora > 24 || hora <=0);
+do {	
+System.out.println("Digite os minutos: ");
+min = ler.nextInt();
+} while (min > 60 || min < 0);
+do {
+System.out.println("Digite os segundos: ");
+seg = ler.nextInt();
+} while (seg > 60 || seg < 0);
+
+
+}
+
+public Hora(int h, int m, int s)
+{
+	this.hora = h;
+	this.min = m;
+	this.seg = s;		
+	
+}
+public void setHor(int h)
+{
+	this.hora = h;
+
+}
+public void setMin(int m)
+{
+	this.min = m;
+}
+public void setSeg(int s)
+{
+	this.seg = s;
+}
+public void setHor()
+{	
+	do {
+	System.out.println("Digite a hora: ");
+	hora = ler.nextInt(); 
+	} while (hora > 24 || hora <=0);
+
+}
+public void setMin()
+{
+	do {	
+	System.out.println("Digite os minutos: ");
+	min = ler.nextInt();
+	} while (min > 60 || min < 0);
+
+}
+public void setSeg()
+{
+	do {
+	System.out.println("Digite os segundos: ");
+	seg = ler.nextInt();
+	} while (seg > 60 || seg < 0);
+
+}
+
+public int getHor(int hora)
+{
+	return hora;
+}
+
+public int getMin(int min)
+{
+	return min;
+}
+
+public int getSeg(int seg)
+{
+	return seg;
+}
+
+public String getHora1 ()
+{
+       int hor=this.hora;
+        int mi=this.min;
+        int se=this.seg;
+        String hr;
+        String min;
+        String seg;
+        String formatado;
+
+            if(this.hora < 10)
+            {
+                hr = "0"+this.hora;
+            }
+            else
+                {
+                    hr = ""+this.hora;
+                }
+             if(this.min < 10)
+                {
+                    min = "0"+this.min;
+                }
+            else
+                {
+                    min = ""+this.min;
+                }
+            if(this.seg < 10)
+                {
+                    seg = "0"+this.seg;
+                }
+            else 
+                {
+                    seg = ""+this.seg;
+                }
+        return hr+":"+min+":"+seg+"";
+
+    }
+
+
+    public String getHora2()
+    {
+        int hor=this.hora;
+        int mi=this.min;
+        int se=this.seg;
+        String hr;
+        String min;
+        String seg;
+        int hr2;
+        String formatado;
+         if(this.hora > 12)
+            {
+                hr2 = this.hora - 12;
+            }
+            else 
+            {
+                hr2 = this.hora;
+            }
+            if(hr2 < 10)
+            {
+                hr = "0"+hr2;
+            }
+            else
+            {
+                hr = ""+hr2;
+            }
+            
+            if(this.min < 10)
+                {
+                    min = "0"+this.min;
+                }
+            else
+                {
+                    min = ""+this.min;
+                }
+            if(this.seg < 10)
+                {
+                    seg = "0"+this.seg;
+                }
+            else 
+                {
+                    seg = ""+this.seg;
+                }
+            if(this.hora < 12)
+                {                    
+                    formatado = "AM";
+                }
+            else
+                {
+                    
+                    formatado = "PM";
+                }
+  
+        return hr+":"+min+":"+seg+"("+formatado+")";
+ 
+
+
+    }
+
+public int getSegundos()
+{
+	int calculoH = hora * 3600;
+	int calculoM = min * 60;		
+	int horario = calculoH + calculoM + seg;
+	return horario;	
+}
+
+public static void main(String[] args) { 
+
+Hora Exibir = new Hora();
+Exibir.getHora1();
+Exibir.getHora2();
+Exibir.getSegundos();
+System.out.println("O horário de hoje é: " + Exibir.getHora1());
+System.out.println(Exibir.getHora2());
+System.out.println(Exibir.getSegundos() + " segundos");
+}
+}
